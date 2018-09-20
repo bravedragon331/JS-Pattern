@@ -1,44 +1,44 @@
-var log = (function() {
+var log = (function () {
   var log = ''
   return {
-    add: function(msg) {
-      log += msg+'\n'
+    add: function (msg) {
+      log += msg + '\n'
     },
-    show: function() {
-      console.log(log);
+    show: function () {
+      console.log(log)
     }
   }
 })()
 
-function Employee(name) {
+function Employee (name) {
   this.name = name
-  this.say = function() {
-    log.add('My name is '+name)
+  this.say = function () {
+    log.add('My name is ' + name)
   }
 }
 
-function EmployeeFactory() {
-  this.create = function(name) {
+function EmployeeFactory () {
+  this.create = function (name) {
     return new Employee(name)
   }
 }
 
-function Vendor(name) {
+function Vendor (name) {
   this.name = name
-  this.say = function() {
-    log.add('My name is '+name)
+  this.say = function () {
+    log.add('My name is ' + name)
   }
 }
-function VendorFactory() {
-  this.create = function(name) {
+function VendorFactory () {
+  this.create = function (name) {
     return new Vendor(name)
   }
 }
 
-(function() {
+(function () {
   var employeeFactory = new EmployeeFactory()
   var vendorFactory = new VendorFactory()
-  var p = [];
+  var p = []
   p.push(employeeFactory.create('Bader 1'))
   p.push(vendorFactory.create('Vendor 1'))
   p.push(employeeFactory.create('Bader 2'))

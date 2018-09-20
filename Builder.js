@@ -1,61 +1,61 @@
-var log = (function() {
-  var log = "";
+var log = (function () {
+  var log = '';
   return {
-      add: function (msg) { log += msg + "\n"; },
-      show: function () { console.log(log); log = ""; }
+    add: function (msg) { log += msg + '\n'; },
+    show: function () { console.log(log); log = ''; }
   }
 })()
-function Shop() {
-  this.construct = function(builder) {
+function Shop () {
+  this.construct = function (builder) {
     builder.step1()
     builder.step2()
     return builder.step3()
   }
 }
 
-function CarBuilder() {
+function CarBuilder () {
   this.car = null
-  this.step1 = function() {
+  this.step1 = function () {
     this.car = new Car()
   }
-  this.step2 = function() {
+  this.step2 = function () {
     this.car.addParts()
   }
-  this.step3 = function() {
+  this.step3 = function () {
     return this.car
   }
 }
 
-function BusBuilder() {
+function BusBuilder () {
   this.bus = null
-  this.step1 = function() {
+  this.step1 = function () {
     this.bus = new Bus()
   }
-  this.step2 = function() {
+  this.step2 = function () {
     this.bus.addParts()
   }
-  this.step3 = function() {
+  this.step3 = function () {
     return this.bus
   }
 }
 
-function Car() {
+function Car () {
   this.parts = 0
-  this.addParts = function() {
+  this.addParts = function () {
     this.parts = 1
-    log.add('Car Part '+this.parts)
+    log.add('Car Part ' + this.parts)
   }
 }
 
-function Bus() {
+function Bus () {
   this.parts = 0
-  this.addParts = function() {
+  this.addParts = function () {
     this.parts = 1
-    log.add('Bus Part '+this.parts)
+    log.add('Bus Part ' + this.parts)
   }
 }
 
-(function() {
+(function () {
   var shop = new Shop()
   var carBuilder = new CarBuilder()
   var busBuilder = new BusBuilder()
