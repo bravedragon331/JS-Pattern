@@ -2,7 +2,7 @@ var Mortgage = function (name) {
   this.name = name
   this.applyFor = function () {
     var result = 'approved'
-    if (!new Bank().verify) {
+    if (!new Bank().verify()) {
       result = 'denied'
     } else if (!new Credit().get(this.name)) {
       result = 'denied'
